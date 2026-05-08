@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Petite fee 運動穿搭</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Noto+Sans+TC:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sage: #9aab7a;
+    --sage-light: #b8c99a;
+    --sage-dark: #6b7d55;
+    --sage-pale: #e8edd8;
+    --cream: #faf8f3;
+    --warm-white: #f5f2eb;
+    --brown: #5c4a3a;
+    --brown-light: #8a7060;
+    --olive: #7a8c5a;
+    --blush: #e8d5c4;
+    --text: #3a3228;
+    --text-light: #7a6e64;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+    font-weight: 300;
+  }
+
+  /* === NAVBAR === */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(250,248,243,0.95);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(154,171,122,0.25);
+    padding: 16px 60px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .logo {
+    font-family: 'Great Vibes', cursive;
+    font-weight: 400; font-size: 2rem;
+    color: var(--sage-dark);
+    letter-spacing: 1px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .logo span { color: var(--sage); }
+  .logo-sub { font-family: 'Noto Sans TC', sans-serif; font-size: 0.55rem; letter-spacing: 3px; text-transform: uppercase; color: var(--text-light); font-weight: 400; display: block; margin-top: -4px; }
+
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-weight: 400; font-size: 0.82rem; color: var(--text-light);
+    text-decoration: none; position: relative; padding-bottom: 2px;
+    letter-spacing: 2px; text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -2px; left: 0;
+    width: 0; height: 1px; background: var(--sage);
+    transition: width 0.3s ease;
+  }
+  .nav-links a:hover { color: var(--sage-dark); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-icons { display: flex; gap: 16px; align-items: center; }
+  .nav-icons button {
+    background: none; border: none; cursor: pointer; font-size: 1.2rem;
+    transition: transform 0.2s; opacity: 0.7;
+  }
+  .nav-icons button:hover { transform: scale(1.15); opacity: 1; }
+  .cart-btn {
+    background: var(--sage) !important;
+    color: white !important; border-radius: 2px !important;
+    padding: 8px 20px !important; font-size: 0.75rem !important;
+    font-weight: 400 !important; display: flex !important;
+    align-items: center !important; gap: 6px !important;
+    letter-spacing: 2px !important; text-transform: uppercase !important;
+    transition: background 0.3s !important;
+    box-shadow: none !important;
+  }
+  .cart-btn:hover { background: var(--sage-dark) !important; }
+
+  /* === HERO === */
+  .hero {
+    margin-top: 72px;
+    min-height: 92vh;
+    background: linear-gradient(160deg, var(--sage-pale) 0%, var(--warm-white) 50%, #e8e4d8 100%);
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center; padding: 60px 80px;
+    position: relative; overflow: hidden;
+  }
+
+  .hero-blob {
+    position: absolute; border-radius: 50%;
+    filter: blur(80px); opacity: 0.25; pointer-events: none;
+  }
+  .blob1 { width: 500px; height: 500px; background: var(--sage); top: -120px; right: 150px; animation: float 9s ease-in-out infinite; }
+  .blob2 { width: 350px; height: 350px; background: var(--blush); bottom: -100px; left: 60px; animation: float 11s ease-in-out infinite reverse; }
+  .blob3 { width: 250px; height: 250px; background: var(--sage-light); top: 50%; right: 0; animation: float 7s ease-in-out infinite 2s; }
+
+  @keyframes float {
+    0%,100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-30px) scale(1.04); }
+  }
+
+  .hero-text { position: relative; z-index: 2; }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent; color: var(--sage-dark);
+    padding: 6px 0; border-radius: 0;
+    font-weight: 400; font-size: 0.75rem;
+    letter-spacing: 3px; text-transform: uppercase;
+    margin-bottom: 24px; animation: bounceIn 0.6s ease;
+    border-bottom: 1px solid var(--sage);
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400; font-size: 4.2rem; line-height: 1.15;
+    color: var(--text);
+    animation: slideUp 0.7s ease 0.1s both;
+    font-style: italic;
+  }
+  .hero-title .accent { color: var(--sage-dark); font-style: normal; display: inline-block; }
+  .hero-title .accent2 { color: var(--olive); display: inline-block; }
+
+  .hero-sub {
+    margin-top: 20px; font-size: 0.95rem; color: var(--text-light);
+    font-weight: 300; line-height: 2;
+    animation: slideUp 0.7s ease 0.2s both;
+    letter-spacing: 0.5px;
+  }
+
+  .hero-cta { display: flex; gap: 16px; margin-top: 40px; animation: slideUp 0.7s ease 0.3s both; }
+
+  .btn-primary {
+    background: var(--sage); color: white;
+    padding: 14px 36px; border-radius: 2px;
+    font-weight: 400; font-size: 0.78rem;
+    border: none; cursor: pointer;
+    letter-spacing: 3px; text-transform: uppercase;
+    transition: background 0.3s, transform 0.2s;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 10px;
+  }
+  .btn-primary:hover { background: var(--sage-dark); }
+
+  .btn-secondary {
+    background: transparent; color: var(--text);
+    padding: 14px 36px; border-radius: 2px;
+    font-weight: 400; font-size: 0.78rem;
+    border: 1px solid var(--sage); cursor: pointer;
+    letter-spacing: 3px; text-transform: uppercase;
+    transition: all 0.3s;
+  }
+  .btn-secondary:hover { background: var(--sage-pale); }
+
+  .hero-stats {
+    display: flex; gap: 36px; margin-top: 48px;
+    animation: slideUp 0.7s ease 0.4s both;
+    padding-top: 36px; border-top: 1px solid rgba(154,171,122,0.3);
+  }
+  .stat { text-align: left; }
+  .stat-num { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 2.2rem; color: var(--sage-dark); }
+  .stat-label { font-size: 0.72rem; color: var(--text-light); font-weight: 300; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 2px; }
+
+  .hero-image {
+    position: relative; z-index: 2;
+    display: flex; justify-content: center; align-items: center;
+  }
+
+  .hero-card {
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(20px);
+    border-radius: 4px; border: 1px solid rgba(154,171,122,0.3);
+    box-shadow: 0 20px 60px rgba(107,125,85,0.12);
+    padding: 40px 36px; width: 360px;
+    animation: popIn 0.8s ease 0.2s both;
+    position: relative;
+  }
+
+  .hero-card-emoji { font-size: 4rem; text-align: center; margin-bottom: 20px; animation: bounce 3s ease-in-out infinite; }
+
+  @keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .hero-card h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.5rem; text-align: center; font-style: italic; color: var(--sage-dark); }
+  .hero-card p { color: var(--text-light); font-size: 0.82rem; text-align: center; margin-top: 8px; letter-spacing: 1px; line-height: 1.8; }
+
+  .hero-card-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 20px; }
+  .tag {
+    padding: 5px 14px; border-radius: 2px;
+    font-size: 0.7rem; font-weight: 300; border: 1px solid;
+    letter-spacing: 1.5px; text-transform: uppercase;
+  }
+  .tag-coral { background: var(--sage-pale); color: var(--sage-dark); border-color: var(--sage-light); }
+  .tag-mint { background: var(--blush); color: var(--brown); border-color: #d4b89a; }
+  .tag-yellow { background: #f0ede4; color: var(--brown-light); border-color: #d4cfc4; }
+  .tag-purple { background: #e8ede0; color: var(--olive); border-color: var(--sage-light); }
+
+  .floating-sticker {
+    position: absolute; font-size: 1.5rem;
+    animation: spinFloat 6s ease-in-out infinite;
+    opacity: 0.6;
+  }
+  .s1 { top: -16px; right: -16px; animation-delay: 0s; }
+  .s2 { bottom: -8px; left: -20px; animation-delay: 1.5s; }
+  .s3 { top: 40%; right: -28px; animation-delay: 3s; }
+
+  @keyframes spinFloat {
+    0%,100% { transform: rotate(-3deg) translateY(0); }
+    50% { transform: rotate(5deg) translateY(-8px); }
+  }
+
+  /* === MARQUEE === */
+  .marquee-wrap {
+    background: var(--sage); padding: 12px 0;
+    overflow: hidden; white-space: nowrap;
+  }
+  .marquee-inner {
+    display: inline-flex; gap: 60px;
+    animation: marquee 25s linear infinite;
+  }
+  .marquee-item {
+    color: white; font-weight: 300; font-size: 0.75rem;
+    display: flex; align-items: center; gap: 12px;
+    letter-spacing: 3px; text-transform: uppercase;
+  }
+  .marquee-dot { color: rgba(255,255,255,0.6); font-size: 0.5rem; }
+
+  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+  /* === CATEGORIES === */
+  .section { padding: 80px 80px; }
+  .section-header { text-align: center; margin-bottom: 52px; }
+  .section-label {
+    display: inline-block; background: transparent;
+    color: var(--sage); padding: 0; border-radius: 0;
+    font-weight: 300; font-size: 0.72rem; margin-bottom: 14px;
+    letter-spacing: 4px; text-transform: uppercase;
+    border-bottom: 1px solid var(--sage-light); padding-bottom: 6px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 2.8rem;
+    color: var(--text); font-style: italic;
+  }
+
+  .categories { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .cat-card {
+    border-radius: 3px; padding: 40px 24px; text-align: center;
+    border: 1px solid rgba(154,171,122,0.2);
+    cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .cat-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(107,125,85,0.15); }
+  .cat-card-bg { position: absolute; inset: 0; opacity: 0.05; font-size: 8rem; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+  .cat-emoji { font-size: 2.5rem; margin-bottom: 14px; }
+  .cat-name { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.2rem; font-style: italic; color: var(--text); }
+  .cat-count { color: var(--text-light); font-size: 0.72rem; margin-top: 6px; font-weight: 300; letter-spacing: 1px; }
+  .cc1 { background: #f0ede6; }
+  .cc2 { background: var(--sage-pale); }
+  .cc3 { background: #ede9e0; }
+  .cc4 { background: var(--blush); }
+
+  /* === PRODUCTS === */
+  .products-section { background: var(--warm-white); }
+  .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+  .product-card {
+    background: white; border-radius: 3px;
+    border: 1px solid rgba(154,171,122,0.15);
+    overflow: hidden; cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+  }
+  .product-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(107,125,85,0.13); }
+
+  .product-img {
+    height: 220px; display: flex; align-items: center; justify-content: center;
+    font-size: 5rem; position: relative;
+    transition: transform 0.4s;
+  }
+  .product-card:hover .product-img { transform: scale(1.04); }
+
+  .product-badge {
+    position: absolute; top: 14px; left: 14px;
+    padding: 4px 12px; border-radius: 2px;
+    font-size: 0.65rem; font-weight: 300; border: 1px solid;
+    letter-spacing: 2px; text-transform: uppercase;
+  }
+  .badge-new { background: var(--sage-pale); color: var(--sage-dark); border-color: var(--sage-light); }
+  .badge-hot { background: var(--blush); color: var(--brown); border-color: #d4b89a; }
+  .badge-sale { background: #f0ede6; color: var(--brown-light); border-color: #d4cfc4; }
+
+  .product-fav {
+    position: absolute; top: 14px; right: 14px;
+    background: white; border: 1px solid rgba(154,171,122,0.3);
+    width: 32px; height: 32px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem; cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .product-fav:hover { transform: scale(1.15); background: var(--sage-pale); }
+
+  .product-info { padding: 20px 22px 22px; }
+  .product-name { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 1.1rem; color: var(--text); }
+  .product-desc { color: var(--text-light); font-size: 0.75rem; margin-top: 5px; letter-spacing: 0.5px; font-weight: 300; }
+  .product-colors { display: flex; gap: 6px; margin-top: 12px; }
+  .color-dot { width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.2s; }
+  .color-dot:hover { transform: scale(1.3); }
+
+  .product-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(154,171,122,0.15); }
+  .product-price { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 1.3rem; color: var(--sage-dark); }
+  .product-price span { font-size: 0.82rem; color: #bbb; font-weight: 300; text-decoration: line-through; margin-left: 6px; font-family: 'Noto Sans TC', sans-serif; }
+  
+  .add-cart {
+    background: var(--sage); color: white;
+    border: none; border-radius: 2px;
+    padding: 8px 16px; font-weight: 300; font-size: 0.7rem;
+    cursor: pointer; transition: background 0.3s;
+    letter-spacing: 2px; text-transform: uppercase;
+    font-family: 'Noto Sans TC', sans-serif;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .add-cart:hover { background: var(--sage-dark); }
+
+  /* === BANNER === */
+  .promo-banner {
+    margin: 0 80px 80px;
+    background: var(--sage-dark);
+    border-radius: 4px; border: none;
+    padding: 70px; display: grid;
+    grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+    position: relative; overflow: hidden;
+  }
+  .promo-bg {
+    position: absolute; right: -80px; top: -80px;
+    width: 360px; height: 360px; border-radius: 50%;
+    background: var(--sage); opacity: 0.2;
+  }
+  .promo-bg2 {
+    position: absolute; left: 30%; bottom: -100px;
+    width: 260px; height: 260px; border-radius: 50%;
+    background: var(--sage-light); opacity: 0.15;
+  }
+  .promo-text { position: relative; z-index: 2; }
+  .promo-label { color: rgba(255,255,255,0.6); font-weight: 300; font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; }
+  .promo-title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 3.2rem; color: white; line-height: 1.2; margin-top: 12px; font-style: italic; }
+  .promo-title em { color: var(--sage-light); font-style: normal; }
+  .promo-sub { color: rgba(255,255,255,0.65); margin-top: 14px; line-height: 1.9; font-weight: 300; font-size: 0.9rem; }
+  .promo-cta { margin-top: 32px; }
+  .btn-light {
+    background: white; color: var(--sage-dark);
+    padding: 12px 30px; border-radius: 2px; border: none; cursor: pointer;
+    font-weight: 300; font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase;
+    transition: all 0.3s; font-family: 'Noto Sans TC', sans-serif;
+  }
+  .btn-light:hover { background: var(--sage-pale); }
+  .promo-emojis { display: flex; justify-content: center; align-items: center; font-size: 6rem; animation: bounce 3s ease-in-out infinite; position: relative; z-index: 2; }
+
+  /* === FEATURES === */
+  .features { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+  .feat-card {
+    background: var(--sage-pale); border-radius: 3px; padding: 32px 22px;
+    border: 1px solid rgba(154,171,122,0.2); text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .feat-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(107,125,85,0.12); }
+  .feat-icon { font-size: 2rem; margin-bottom: 14px; }
+  .feat-title { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 1.1rem; font-style: italic; color: var(--text); }
+  .feat-desc { color: var(--text-light); font-size: 0.78rem; margin-top: 8px; line-height: 1.8; font-weight: 300; }
+
+  /* === NEWSLETTER === */
+  .newsletter {
+    background: linear-gradient(135deg, var(--sage), var(--sage-dark));
+    margin: 0 80px 80px; border-radius: 4px;
+    border: none;
+    padding: 70px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .newsletter h2 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 2.4rem; color: white; font-style: italic; }
+  .newsletter p { color: rgba(255,255,255,0.75); margin-top: 10px; font-size: 0.9rem; font-weight: 300; letter-spacing: 0.5px; }
+  .newsletter-form { display: flex; gap: 12px; justify-content: center; margin-top: 32px; flex-wrap: wrap; }
+  .newsletter-form input {
+    padding: 12px 24px; border-radius: 2px; border: 1px solid rgba(255,255,255,0.4);
+    font-size: 0.85rem; font-family: inherit; width: 300px;
+    font-weight: 300; outline: none; background: rgba(255,255,255,0.15);
+    color: white; letter-spacing: 0.5px;
+  }
+  .newsletter-form input::placeholder { color: rgba(255,255,255,0.5); }
+  .newsletter-form button {
+    background: white; color: var(--sage-dark);
+    padding: 12px 28px; border-radius: 2px; border: none;
+    font-weight: 300; font-size: 0.75rem; cursor: pointer;
+    letter-spacing: 3px; text-transform: uppercase;
+    transition: background 0.3s;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  .newsletter-form button:hover { background: var(--sage-pale); }
+  .nl-deco { position: absolute; font-size: 5rem; opacity: 0.08; pointer-events: none; }
+  .nl-d1 { top: -10px; left: 40px; }
+  .nl-d2 { bottom: -10px; right: 40px; }
+
+  /* === FOOTER === */
+  footer {
+    background: var(--text); color: white;
+    padding: 60px 80px 30px;
+  }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+  .footer-logo { font-family: 'Great Vibes', cursive; font-weight: 400; font-size: 2rem; color: var(--sage-light); margin-bottom: 12px; }
+  .footer-logo span { color: var(--sage); }
+  .footer-desc { color: rgba(255,255,255,0.5); font-size: 0.82rem; line-height: 1.9; font-weight: 300; }
+  .footer-socials { display: flex; gap: 10px; margin-top: 20px; }
+  .social-btn {
+    width: 36px; height: 36px; border-radius: 2px;
+    background: rgba(255,255,255,0.07); display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; cursor: pointer; border: 1px solid rgba(255,255,255,0.12);
+    transition: background 0.3s, transform 0.2s;
+  }
+  .social-btn:hover { background: var(--sage); transform: translateY(-2px); }
+  .footer-col h4 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1rem; color: var(--sage-light); margin-bottom: 18px; letter-spacing: 1px; font-style: italic; }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 12px; }
+  .footer-col a { color: rgba(255,255,255,0.45); text-decoration: none; font-size: 0.78rem; transition: color 0.2s; letter-spacing: 0.5px; font-weight: 300; }
+  .footer-col a:hover { color: white; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; }
+  .footer-bottom p { color: rgba(255,255,255,0.3); font-size: 0.75rem; font-weight: 300; letter-spacing: 0.5px; }
+
+  /* === CART TOAST === */
+  .toast {
+    position: fixed; bottom: 30px; right: 30px;
+    background: var(--text); color: white;
+    padding: 14px 24px; border-radius: 3px;
+    border: 1px solid var(--sage); font-weight: 300;
+    font-size: 0.82rem; letter-spacing: 1px;
+    transform: translateY(100px); opacity: 0;
+    transition: all 0.3s ease; z-index: 999;
+    display: flex; align-items: center; gap: 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  }
+  .toast.show { transform: translateY(0); opacity: 1; }
+
+  /* === ANIMATIONS === */
+  @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes bounceIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+  @keyframes popIn { from { opacity: 0; transform: scale(0.7) rotate(-5deg); } to { opacity: 1; transform: scale(1) rotate(0); } }
+
+  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">
+    Petite fée
+    <span class="logo-sub">Gym &amp; Workout Clothes</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#">首頁</a></li>
+    <li><a href="#">女裝</a></li>
+    <li><a href="#">男裝</a></li>
+    <li><a href="#">配件</a></li>
+    <li><a href="#">特賣</a></li>
+  </ul>
+  <div class="nav-icons">
+    <button title="搜尋">🔍</button>
+    <button title="收藏">🤍</button>
+    <button class="cart-btn" onclick="openCart()">🛒 購物車 <span id="cart-count">0</span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-blob blob1"></div>
+  <div class="hero-blob blob2"></div>
+  <div class="hero-blob blob3"></div>
+  <div class="hero-text">
+    <div class="hero-badge">🦋 2026 春夏新品到貨</div>
+    <h1 class="hero-title">
+      優雅地動，<br>
+      <span class="accent">自信地</span> 穿，<br>
+      <span class="accent2">成為</span> 你自己
+    </h1>
+    <p class="hero-sub">為每一位女性打造的運動服飾<br>機能與美感，在 Petite fée 完美相遇</p>
+    <div class="hero-cta">
+      <a href="#products" class="btn-primary">立即購物 →</a>
+      <button class="btn-secondary">查看新品</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">10K+</div><div class="stat-label">快樂顧客</div></div>
+      <div class="stat"><div class="stat-num">200+</div><div class="stat-label">精選商品</div></div>
+      <div class="stat"><div class="stat-num">4.9⭐</div><div class="stat-label">顧客評分</div></div>
+    </div>
+  </div>
+  <div class="hero-image">
+    <div class="hero-card">
+      <div class="floating-sticker s1">🦋</div>
+      <div class="floating-sticker s2">🌿</div>
+      <div class="floating-sticker s3">✨</div>
+      <div class="hero-card-emoji">🧘‍♀️</div>
+      <h3>為女性而設計</h3>
+      <p>每一件都是對妳的溫柔呵護</p>
+      <div class="hero-card-tags">
+        <span class="tag tag-coral">透氣排汗</span>
+        <span class="tag tag-mint">彈性伸展</span>
+        <span class="tag tag-yellow">快乾材質</span>
+        <span class="tag tag-purple">時尚設計</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-inner">
+    <span class="marquee-item"><span class="marquee-dot">★</span> 免費配送 NT$1000以上</span>
+    <span class="marquee-item"><span class="marquee-dot">★</span> 30天退換貨保證</span>
+    <span class="marquee-item"><span class="marquee-dot">★</span> 新會員9折優惠</span>
+    <span class="marquee-item"><span class="marquee-dot">★</span> 台灣在地品牌</span>
+    <span class="marquee-item"><span class="marquee-dot">★</span> 免費配送 NT$1000以上</span>
+    <span class="marquee-item"><span class="marquee-dot">★</span> 30天退換貨保證</span>
+    <span class="marquee-item"><span class="marquee-dot">★</span> 新會員9折優惠</span>
+    <span class="marquee-item"><span class="marquee-dot">★</span> 台灣在地品牌</span>
+    <span class="marquee-item"><span class="marquee-dot">★</span> 免費配送 NT$1000以上</span>
+    <span class="marquee-item"><span class="marquee-dot">★</span> 30天退換貨保證</span>
+    <span class="marquee-item"><span class="marquee-dot">★</span> 新會員9折優惠</span>
+    <span class="marquee-item"><span class="marquee-dot">★</span> 台灣在地品牌</span>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<section class="section">
+  <div class="section-header fade-in">
+    <div class="section-label">分類瀏覽</div>
+    <h2 class="section-title">找到你的運動風格 🎯</h2>
+  </div>
+  <div class="categories fade-in">
+    <div class="cat-card cc1">
+      <div class="cat-bg" style="position:absolute;inset:0;opacity:0.08;font-size:6rem;display:flex;align-items:center;justify-content:center;pointer-events:none;">🧘</div>
+      <div class="cat-emoji">🧘‍♀️</div>
+      <div class="cat-name">瑜珈系列</div>
+      <div class="cat-count">48 件商品</div>
+    </div>
+    <div class="cat-card cc2">
+      <div class="cat-emoji">🏃‍♀️</div>
+      <div class="cat-name">跑步系列</div>
+      <div class="cat-count">62 件商品</div>
+    </div>
+    <div class="cat-card cc3">
+      <div class="cat-emoji">🏊‍♀️</div>
+      <div class="cat-name">水上運動</div>
+      <div class="cat-count">35 件商品</div>
+    </div>
+    <div class="cat-card cc4">
+      <div class="cat-emoji">🏋️</div>
+      <div class="cat-name">重訓健身</div>
+      <div class="cat-count">55 件商品</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section products-section" id="products">
+  <div class="section-header fade-in">
+    <div class="section-label">精選商品</div>
+    <h2 class="section-title">每一件，都為妳而生</h2>
+  </div>
+  <div class="products-grid fade-in">
+
+    <!-- Product 1 -->
+    <div class="product-card">
+      <div class="product-img" style="background: linear-gradient(160deg,#dce8f0,#c8dae8);">
+        <span class="product-badge badge-hot">熱賣</span>
+        <div class="product-fav" onclick="toggleFav(this)">🤍</div>
+        <div style="font-size: 5rem;">🧘‍♀️</div>
+      </div>
+      <div class="product-info">
+        <div class="product-name">雲感高強度運動內衣</div>
+        <div class="product-desc">鼠尾草綠 / 穩定支撐</div>
+        <div class="product-bottom">
+          <div class="product-price">NT$ 880</div>
+          <a href="https://myship.7-11.com.tw/general/detail/GM2502263407407" target="_blank" class="add-cart">立即購買</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product-card">
+      <div class="product-img" style="background: linear-gradient(160deg,#e0e4ec,#c8cedd);">
+        <span class="product-badge badge-hot">熱賣</span>
+        <div class="product-fav" onclick="toggleFav(this)">🤍</div>
+        <div style="font-size: 5rem;">👖</div>
+      </div>
+      <div class="product-info">
+        <div class="product-name">裸感提臀高腰褲</div>
+        <div class="product-desc">奶油白 / 視覺收腹</div>
+        <div class="product-bottom">
+          <div class="product-price">NT$ 980</div>
+          <a href="https://myship.7-11.com.tw/general/detail/GM2502263407407" target="_blank" class="add-cart">立即購買</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product-card">
+      <div class="product-img" style="background: linear-gradient(160deg,#e8e8e4,#d8d8d0);">
+        <span class="product-badge badge-new">新品</span>
+        <div class="product-fav" onclick="toggleFav(this)">🤍</div>
+        <div style="font-size: 5rem;">👕</div>
+      </div>
+      <div class="product-info">
+        <div class="product-name">休閒速乾短袖</div>
+        <div class="product-desc">莫蘭迪粉 / 輕盈透氣</div>
+        <div class="product-bottom">
+          <div class="product-price">NT$ 650</div>
+          <a href="https://myship.7-11.com.tw/general/detail/GM2502263407407" target="_blank" class="add-cart">立即購買</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="footer-logo">Petite fée</div>
+      <p class="footer-desc">優雅地動，自信地穿，成為你自己。<br>機能與美感，在 Petite fée 完美相遇。</p>
+      <div class="footer-socials">
+        <div class="social-btn">IG</div>
+        <div class="social-btn">FB</div>
+        <div class="social-btn">LI</div>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>購物指南</h4>
+      <ul>
+        <li><a href="#">常見問題</a></li>
+        <li><a href="#">運送說明</a></li>
+        <li><a href="#">退換貨政策</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>關於我們</h4>
+      <ul>
+        <li><a href="#">品牌故事</a></li>
+        <li><a href="#">門市資訊</a></li>
+        <li><a href="#">隱私條款</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>聯絡我們</h4>
+      <ul>
+        <li><a href="#">客服信箱</a></li>
+        <li><a href="#">合作洽談</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Petite fée. All rights reserved.</p>
+    <p>用愛縫製每一針</p>
+  </div>
+</footer>
+
+<script>
+  function openCart() {
+    alert('🛒 購物車功能即將上線！請點擊商品「立即購買」至賣場下單。');
+  }
+
+  function toggleFav(el) {
+    el.textContent = el.textContent === '🤍' ? '❤️' : '🤍';
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
